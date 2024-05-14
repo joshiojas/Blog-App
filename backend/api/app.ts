@@ -3,7 +3,7 @@ import Fastify, {
   type RouteShorthandOptions,
 } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
-import type { Post, User } from "../types.ts";
+import type { Post, User } from "../types.js";
 import {
   authenticateUser,
   createPost,
@@ -14,7 +14,7 @@ import {
   getPostById,
   getPostsByAuthorId,
   hashPassword,
-} from "../lib.ts";
+} from "../lib.js";
 
 export default async function (server: FastifyInstance, opts: any) {
   server.get("/ping", async (request, reply) => {
