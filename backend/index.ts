@@ -137,3 +137,8 @@ const start = async () => {
 };
 
 start();
+
+export default async function handler(req: any, reply: any) {
+  await server.ready();
+  server.server.emit("request", req, reply);
+}
