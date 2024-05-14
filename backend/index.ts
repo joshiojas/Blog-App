@@ -136,7 +136,7 @@ const start = async () => {
   }
 };
 
-start();
+// start();
 
 export default async function handler(req: any, reply: any) {
   await server.ready();
