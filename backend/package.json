@@ -13,5 +13,8 @@
     "fastify": "^4.26.2",
     "nodemon": "^3.1.0",
     "prisma": "^5.13.0"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
