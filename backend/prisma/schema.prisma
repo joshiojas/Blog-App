@@ -14,17 +14,18 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  name String?
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
   password String?
-  Post Post[]
+  Post     Post[]
 }
 
 model Post {
-  id Int @id @default(autoincrement())
-  title String
-  content String
+  id       Int    @id @default(autoincrement())
+  title    String
+  content  String
   authorId Int
-  author User @relation(fields: [authorId], references: [id])
+  url      String @default("https://picsum.photos/200")
+  author   User   @relation(fields: [authorId], references: [id])
 }

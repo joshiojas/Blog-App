@@ -39,8 +39,8 @@ export default async function (server: FastifyInstance, opts: any) {
     }
   });
 
-  server.post("/get-post", async (req, res) => {
-    const postId = (req.body as any).postId as number;
+  server.get("/get-post", async (req, res) => {
+    const postId = (req.query as any).id as number;
     const post = await getPostById(postId);
     if (post) {
       return { message: "Post found", post: post };
