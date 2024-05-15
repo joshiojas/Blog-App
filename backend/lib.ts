@@ -53,7 +53,7 @@ export const createPost = async (post: Post) => {
 export const getPostById = async (id: number) => {
   return await prisma.post.findUnique({
     where: {
-      id: id,
+      id: Number(id),
     },
   });
 };

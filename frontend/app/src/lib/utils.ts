@@ -61,13 +61,7 @@ export async function getAllPosts() {
 }
 
 export async function getPost(id: number) {
-  const res = await fetch(`${backend_url}/get-post`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ id: id }),
-  });
+  const res = await fetch(`${backend_url}/get-post?id=${id}`);
   const post = await res.json();
   return post;
 }
