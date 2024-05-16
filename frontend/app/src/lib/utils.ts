@@ -65,3 +65,16 @@ export async function getPost(id: number) {
   const post = await res.json();
   return post;
 }
+
+export async function getUser(email: String, password: String) {
+  const res = await fetch(`${backend_url}/user-authenticate`, {
+    method: "POST",
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  });
+  const user = await res.json();
+  if (user.message === "User not authenticated") return null;
+  return user.user;
+}

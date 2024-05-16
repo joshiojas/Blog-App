@@ -88,7 +88,10 @@ export default async function (server: FastifyInstance, opts: any) {
     console.log(typeof user);
     const a = await authenticateUser(user);
     if (a) {
-      return { message: "User authenticated", userId: a.id };
+      return {
+        message: "User authenticated",
+        user: { userId: a.id, name: a.name, email: a.email },
+      };
     } else {
       return { message: "User not authenticated" };
     }
