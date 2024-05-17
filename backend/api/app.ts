@@ -111,7 +111,7 @@ export default async function (server: FastifyInstance, opts: any) {
   server.get("/delete-post", async (req, res) => {
     try {
       const postId = (req.query as any).id as number;
-      const d = await deletePost(postId);
+      const d = await deletePost(Number(postId));
       return { message: "Post deleted", d: d };
     } catch (e) {
       return { error: "Post id could not be found" };

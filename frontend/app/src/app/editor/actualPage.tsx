@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import RichTextEditor from "@/components/textEditor";
 import { createPost } from "@/lib/actions";
 import styles from "./actualPage.module.css";
-import { Button, Radio } from "@mui/material";
-import { Link } from "lucide-react";
+import { Button } from "@mui/material";
 
 const Home: React.FC = () => {
   const [markdown, setMarkdown] = useState("");
