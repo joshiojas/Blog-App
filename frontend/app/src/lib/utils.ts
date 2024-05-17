@@ -1,7 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
+import { redirect } from "next/navigation";
 import { twMerge } from "tailwind-merge";
-
-const backend_url = process.env.BACKEND_URL;
 
 const regex = {
   title: /^#\s+.+/,
@@ -32,7 +31,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function getMdDescription(md: string) {
+export async function getMdDescription(md: string) {
   if (!md) return "";
   let tokens = md.split("\n");
   for (let i = 0; i < tokens.length; i++) {
@@ -52,29 +51,4 @@ export function getMdDescription(md: string) {
     return tokens[i];
   }
   return "";
-}
-
-export async function getAllPosts() {
-  const res = await fetch(`${backend_url}/posts`);
-  const posts = await res.json();
-  return posts;
-}
-
-export async function getPost(id: number) {
-  const res = await fetch(`${backend_url}/get-post?id=${id}`);
-  const post = await res.json();
-  return post;
-}
-
-export async function getUser(email: String, password: String) {
-  const res = await fetch(`${backend_url}/user-authenticate`, {
-    method: "POST",
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-  });
-  const user = await res.json();
-  if (user.message === "User not authenticated") return null;
-  return user.user;
 }

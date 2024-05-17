@@ -1,0 +1,34 @@
+.searchbar {
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  /* background-color: #f2f2f2; */
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 50%;
+  height: 5rem;
+}
+
+.searchbar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 1.5rem;
+  height: 2.5rem;
+  text-indent: 10px;
+}
+
+.searchbar button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.searchbar button i {
+  color: #888;
+  font-size: 20px;
+}

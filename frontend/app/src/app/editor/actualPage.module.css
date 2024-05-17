@@ -1,0 +1,10 @@
+.title {
+  @apply text-2xl;
+  @apply rounded-md mb-8;
+  @apply text-lg;
+  text-indent: 20px;
+  color: black;
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 1rem;
+}

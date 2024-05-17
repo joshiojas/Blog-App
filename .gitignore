@@ -131,3 +131,5 @@ dist
 
 backend/prisma/migrations/*
 .DS_Store
+
+test.txt

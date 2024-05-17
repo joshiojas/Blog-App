@@ -107,6 +107,18 @@ export default async function (server: FastifyInstance, opts: any) {
     }
   });
 
+  server.post("/get-userid", async (req, res) => {
+    const email = (req.body as any).email as string;
+    console.log(email);
+    const user = await getAllUsers();
+    console.log(user);
+    const u = user.find((u) => u.email === email);
+    if (u) {
+      return { message: "User found", user: u };
+    } else {
+      return { message: "User not found" };
+    }
+  });
   //   const start = async () => {
   //     try {
   //       const PORT = (process.env.PORT as unknown as number) || 3000;
