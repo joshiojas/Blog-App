@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import TextField from "@mui/material/TextField";
 import { signIn } from "next-auth/react";
@@ -24,7 +23,7 @@ export default function Form() {
               <CardHeader>
                 <CardTitle>Welcome</CardTitle>
                 <CardDescription>
-                  Today is a new day. It's your day. You shape it.
+                  Today is a new day. Its your day. You shape it.
                 </CardDescription>
               </CardHeader>
               <CardContent>
