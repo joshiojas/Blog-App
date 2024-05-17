@@ -43,8 +43,22 @@ export async function getUser(email: String, password: String) {
   return <User>{
     name: user.user.name,
     email: user.user.email,
-    id: user.user.userId,
+    id: user.user.userId.toString(),
   };
+}
+
+export async function getUserId(email: String) {
+  const res = await fetch(`${backend_url}/get-userid`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: email,
+    }),
+  });
+  const user = await res.json();
+  return user.user.id;
 }
 
 export async function createUser(formData: FormData) {
@@ -74,24 +88,24 @@ export async function createPost(formData: FormData) {
   const title = formData.get("title") as string;
   const content = formData.get("content") as string;
   console.log(session);
-  const authorId = session?.user?.id;
+  const authorId = await getUserId(session?.user?.email || "");
   if (authorId === undefined) {
     console.error("User not authenticated");
     redirect("/api/auth/signin");
   }
-  const response = await fetch(`${backend_url}/create-post`, {
+  var response = await fetch(`${backend_url}/create-post`, {
     method: "POST",
-    body: JSON.stringify({ title: title, content: content }),
+    body: JSON.stringify({
+      title: title,
+      content: content,
+      authorId: authorId,
+    }),
     headers: {
       "Content-Type": "application/json",
     },
   });
-
-  if (response.ok) {
-    revalidatePath("/blogs");
-    redirect("/posts");
-  } else {
-    const error = await response.json();
-    console.error(error);
-  }
+  response = await response.json();
+  console.log(response);
+  revalidatePath("/");
+  redirect("/");
 }

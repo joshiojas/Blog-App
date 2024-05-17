@@ -8,3 +8,19 @@
   height: 2.5rem;
   border-radius: 1rem;
 }
+
+.raweditor {
+  @apply rounded-md;
+  @apply text-lg;
+  @apply bg-white;
+  @apply p-4;
+  @apply w-full;
+  @apply h-full;
+  @apply border-2;
+  @apply border-gray-300;
+  @apply border-solid;
+  @apply shadow-md;
+  @apply overflow-y-auto;
+  @apply overflow-x-hidden;
+  @apply resize-none;
+}

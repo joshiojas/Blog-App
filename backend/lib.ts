@@ -98,3 +98,17 @@ export const authenticateUser = async (user: User) => {
   }
   return false;
 };
+
+export const deletePost = async (id: number) => {
+  try {
+    await prisma.post.delete({
+      where: {
+        id: id,
+      },
+    });
+    return { message: "Post deleted successfully" };
+  } catch (error) {
+    console.log(error);
+    return { error: "Post couldn't be deleted" };
+  }
+};

@@ -17,7 +17,10 @@ export default async function Navbar() {
         <div className={styles.navbar__links}>
           <Link href="/blogs">Blogs</Link>
           {session === null ? (
-            <Link href="/api/auth/signin">Sign In</Link>
+            <>
+              <Link href="/api/auth/signin">Sign In</Link>
+              <Link href="/signup">Sign Up</Link>
+            </>
           ) : (
             <>
               <Link href="/editor">New Blog</Link>

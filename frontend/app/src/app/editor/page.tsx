@@ -8,6 +8,7 @@ export default async function Page() {
     <>
       <div className="flext m-32 justify-center ">
         <Home />
+        
       </div>
     </>
   );

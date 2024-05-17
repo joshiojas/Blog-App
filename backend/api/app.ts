@@ -8,6 +8,7 @@ import {
   authenticateUser,
   createPost,
   createUser,
+  deletePost,
   deleteUser,
   getAllPosts,
   getAllUsers,
@@ -104,6 +105,16 @@ export default async function (server: FastifyInstance, opts: any) {
       return { message: "User deleted", d: d };
     } catch (e) {
       return { error: "User id could not be found" };
+    }
+  });
+
+  server.get("/delete-post", async (req, res) => {
+    try {
+      const postId = (req.query as any).id as number;
+      const d = await deletePost(postId);
+      return { message: "Post deleted", d: d };
+    } catch (e) {
+      return { error: "Post id could not be found" };
     }
   });
 

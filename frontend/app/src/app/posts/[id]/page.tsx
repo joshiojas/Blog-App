@@ -9,5 +9,9 @@ export default async function Page(id: any) {
   const processedContent = await remark().use(html).process(post.content);
   const contentHtml = processedContent.toString();
 
-  return <div dangerouslySetInnerHTML={{ __html: contentHtml }} />;
+  return (
+    <div className="m-24 h-full">
+      <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    </div>
+  );
 }

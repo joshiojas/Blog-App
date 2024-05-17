@@ -8,8 +8,6 @@ export default function Posts(props: any) {
   const [posts, setPosts] = useState(props.posts);
 
   function updatePosts(e: any) {
-    console.log("updating posts");
-    console.log(e.target.value);
     const filteredPosts = props.posts.filter((post: Post) => {
       return post.title.includes(e.target.value);
     });
@@ -18,21 +16,23 @@ export default function Posts(props: any) {
 
   return (
     <>
-      <div className=" flex justify-center">
-        <Searchbar onchange={updatePosts} />
+      <div className="flex justify-center w-screen">
+        <Searchbar updatePosts={updatePosts} />
       </div>
-      <div className="flex">
-        {posts.map((post: Post) => (
-          <div className="m-5" key={post.id}>
-            <Card
-              id={post.id}
-              title={post.title}
-              content={post.content}
-              authorId={post.authorId}
-              url={post.url}
-            />
-          </div>
-        ))}
+      <div className="flex justify-center">
+        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post: Post) => (
+            <div className="m-8" key={post.id}>
+              <Card
+                id={post.id}
+                title={post.title}
+                content={post.content}
+                authorId={post.authorId}
+                url={post.url}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
