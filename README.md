@@ -33,6 +33,8 @@ Blog-App is a full-stack web application designed for blogging. It's built with 
 - **User Authentication**: Secure sign-in functionality to protect user data and personalize the user experience.
 - **Blog Post Management**: Users can create, read, update, and delete their blog posts.
 
+click to see [demo](https://blog-app-grmn.vercel.app) of the application
+
 ## Getting Started
 
 Before you start, ensure you bun installed on your machine.
