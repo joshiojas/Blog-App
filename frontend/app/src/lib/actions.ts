@@ -76,7 +76,7 @@ export async function createUser(formData: FormData) {
   });
 
   if (response.ok) {
-    redirect("/api/auth/signin");
+    redirect("/editor");
   } else {
     const error = await response.json();
     console.error(error);
