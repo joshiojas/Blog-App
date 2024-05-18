@@ -130,19 +130,19 @@ export default async function (server: FastifyInstance, opts: any) {
       return { message: "User not found" };
     }
   });
-  //   const start = async () => {
-  //     try {
-  //       const PORT = (process.env.PORT as unknown as number) || 3000;
-  //       await server.listen({ port: PORT });
+  // const start = async () => {
+  //   try {
+  //     const PORT = (process.env.PORT as unknown as number) || 3000;
+  //     await server.listen({ port: PORT });
 
-  //       const address = server.server.address();
-  //       const port = typeof address === "string" ? address : address?.port;
-  //       console.log(`Server listening at ${port}`);
-  //     } catch (err) {
-  //       server.log.error(err);
-  //       process.exit(1);
-  //     }
-  //   };
+  //     const address = server.server.address();
+  //     const port = typeof address === "string" ? address : address?.port;
+  //     console.log(`Server listening at ${port}`);
+  //   } catch (err) {
+  //     server.log.error(err);
+  //     process.exit(1);
+  //   }
+  // };
 
-  //   // start();
+  // start();
 }
